@@ -1,0 +1,7 @@
+<form #form="ngForm">
+	Name:  <input [(ngModel)]="user.name" name="name" required><br>
+	Email: <input [(ngModel)]="user.email" name="email" required>
+	
+	<br><br>
+	<button (click)="onSave()" [disabled]="form.invalid">Save</button>
+</form>

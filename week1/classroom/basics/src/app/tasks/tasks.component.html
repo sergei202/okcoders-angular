@@ -1,0 +1,10 @@
+<input [(ngModel)]="task.name" placeholder="Task Name">
+<button (click)="addTask()">Add Task</button>
+
+<br><br>
+{{tasks.length}} Tasks:<br>
+<ul>
+	<li *ngFor="let task of tasks">
+		{{task.name}}
+	</li>
+</ul>
