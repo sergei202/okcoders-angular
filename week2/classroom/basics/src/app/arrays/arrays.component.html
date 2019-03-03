@@ -1,0 +1,19 @@
+Numbers by 1s: <span *ngFor="let n of numsBy1">{{n}} </span><br>
+Numbers by 2s: <span *ngFor="let n of numsBy2">{{n}} </span><br>
+Numbers by 3s: <span *ngFor="let n of numsBy3">{{n}} </span><br>
+<hr>
+
+<div *ngFor="let number of numbers; let i=index">
+	Number {{i+1}}: {{number}}
+</div>
+
+<hr>
+
+My lotto numbers: <span *ngFor="let n of numbers">{{n}} </span>
+
+<hr>
+
+My List:
+<ul>
+	<li *ngFor="let n of numbers">{{n}}</li>
+</ul>

@@ -1,0 +1,18 @@
+<input placeholder="Name" [(ngModel)]="newFriend.name">
+<input placeholder="Phone" [(ngModel)]="newFriend.phone">
+<input placeholder="Rank" type="number" min="1" [(ngModel)]="newFriend.rank">
+<button (click)="addFriend()" [disabled]="!newFriend.name || !newFriend.rank">Add Friend</button>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Phone</th>
+		<th>Rank</th>
+	</tr>
+
+	<tr *ngFor="let friend of friends">
+		<td>{{friend.name}}</td>
+		<td>{{friend.phone}}</td>
+		<td>{{friend.rank}}</td>
+	</tr>
+</table>

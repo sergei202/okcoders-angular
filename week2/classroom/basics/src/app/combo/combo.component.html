@@ -1,0 +1,15 @@
+Combo: 
+<input type="number" [(ngModel)]="num1">
+<input type="number" [(ngModel)]="num2">
+<input type="number" [(ngModel)]="num3">
+
+<button (click)="unlock()" [disabled]="attempts>=3">Unlock</button>
+
+<div *ngIf="unlocked">Safe unlocked!</div>
+
+<div *ngIf="failed">WRONG COMBO</div>
+
+<br><br>Attempts: {{attempts}}
+
+
+<div *ngIf="attempts>=3">TOO MANY ATTEMPTS.  Your valuables are gone forever.</div>

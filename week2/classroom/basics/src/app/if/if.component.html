@@ -1,0 +1,10 @@
+Password: <input [(ngModel)]="password">
+<button (click)="login()">Login</button>
+<br><br>
+
+
+
+<div *ngIf="loggedIn">Secret stuff</div>
+
+<div *ngIf="badPassword">Error, wrong password</div>
+

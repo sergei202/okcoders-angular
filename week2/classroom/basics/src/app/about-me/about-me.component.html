@@ -1,0 +1,9 @@
+Name: <input [(ngModel)]="name"><br>
+Age: <input type="number" [(ngModel)]="age"><br>
+Favorite: <input [(ngModel)]="favorite"><br>
+
+<br>
+
+<div *ngIf="name.length>2 && age && favorite.length>2">
+	Hi, my name is {{name}}, I am {{age}} years old, {{favorite}} is my favorite!
+</div>
