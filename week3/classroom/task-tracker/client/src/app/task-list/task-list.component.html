@@ -1,0 +1,37 @@
+<div class="row">
+	<div class="col-3">
+		<input class="form-control" name="name" placeholder="Task Name" [(ngModel)]="task.name">
+	</div>
+	<div class="col-3">
+		<select class="form-control" name="category" [(ngModel)]="task.category">
+			<option *ngFor="let cat of categories" value="{{cat}}">{{cat}}</option>
+		</select>
+	</div>
+	<div class="col-3">
+		<input class="form-control" type="number" min="1" max="5" name="priority" placeholder="Priority" [(ngModel)]="task.priority">
+	</div>
+	<div class="col-3">
+		<button class="btn btn-primary" (click)="addTask()" [disabled]="!task.name || !task.category || !task.priority">Add Task</button>
+	</div>
+</div>
+
+
+
+
+
+
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>Category</th>
+		<th>Priority</th>
+	</tr>
+	<tr *ngFor="let task of tasks" [class.done]="task.done" (dblclick)="toggleTask(task)">
+		<td>{{task.name}}</td>
+		<td>{{task.category}}</td>
+		<td>{{task.priority}}</td>
+		<td>
+			<button (click)="toggleTask(task)">{{task.done ? 'Mark Open':'Mark Done'}}</button>
+		</td>
+	</tr>
+</table>
