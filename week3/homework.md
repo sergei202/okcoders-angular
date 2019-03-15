@@ -113,7 +113,57 @@ var id = route.snapshot.paramMap.get('id');
 
 Use the id to get the article and display it!
 
-## Part 3
-Here we'll cover adding new articles!  _Coming tomorrow!_
+## Part 3 - Adding and Editing Articles
 
-<!-- - `saveArticle(article)`: Saves the new article (with the next fake `_id`) and returns a Promise of the saved article -->
+Once you have your Article List and Detail working, we need to be able to add new articles!
+
+We'll need to create another component, `ArticleEdit`, which will house our form and inputs.
+It'll have:
+- Inputs for name, title, and date*
+- Textarea for the article body
+- Save button
+
+This component will let us do two tasks:
+- Allow you to add a new article
+- Allow you to edit an existing article
+
+Both will also require another method to our `ArticleService`: `saveArticle(article)`.  It will take an article object and save it to our `articles` array (with the next fake `_id`) and return a Promise of that saved article.
+
+If the article already exists (if the `_id` property is found in our `articles` array), the article is updated with whatever is passed; otherwise it gets added as a new article.
+
+We need a separate route to create a new article and to edit an existing article.  Since we already have `/articles/:id` link to the `ArticleDetail`, we can have `/articles/:id/edit` link to `ArticleEdit`.  We can have `/articles/new` link directly to `ArticleEdit`.
+
+Inside of `ArticleEdit`, we'll know if we are editing or creating a new article based on the `id` param; if it is empty then it's a new article, otherwise we're editing an existing one.
+
+One more thing that you'll notice is that once you save an article, hitting the back button (or changing the url) will cause all of our data to be reset.  This is because our 'database' is in memory.  Anytime we change the url (or use the back button, which changes it for us), we cause Angular to completely reload, losing our changes.
+
+We get around this by adding navigation links inside our app:
+- Add a "Back to Articles" link/button to `ArticleDetail` and `ArticleEdit`
+- Add a link/button to `articles/new` inside of `ArticleList`
+- Add a link/button link inside of `ArticleDetail`
+
+Don't forget that we need to use `routerLink`, not `href` for this.  Here's an example of what the Back button will look like:
+
+```html
+<a class="btn btn-primary" routerLink="/articles">Back to Articles</a>
+```
+
+Once we switch to using a backend, we won't have that restriction.
+
+
+### * Dates in Angular
+Dates with ngModel are a little strange.  We can't use ngModel like we usually do (`[(ngModel)]`), but we'll have to break it up into setting the value and reading the value.  The reason for this is that the date input field expects the value as a string in the format of `yyyy-MM-dd`, but our code wants a date object, not a string.
+
+Breaking it up results in something like this:
+```html
+<input type="date" name="date" [value]="article.date | date:'yyyy-MM-dd'" (input)="article.date=parseDate($event.target.value)">
+```
+
+We'll also have to add a `parseDate()` method to our `ArticleEdit` controller:
+```ts
+parseDate(str) {
+	return new Date(str);
+}
+```
+
+We'll talk more in class about this.
