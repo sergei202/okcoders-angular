@@ -167,3 +167,27 @@ parseDate(str) {
 ```
 
 We'll talk more in class about this.
+
+## Part 4 - Backend
+
+### Node
+
+We discussed how to connect Angular and Node in class, refer to the [video](https://www.youtube.com/watch?v=TjHOZIW0NqY).
+
+### MongoDB
+
+Here is the [video for this section](https://www.youtube.com/watch?v=SOT4pKtc_Xo&feature=youtu.be).
+
+Resources for this section:
+
+- Review the [notes from Module 3 Week 3](https://github.com/sergei202/okcoders-backend/tree/master/week3)
+- Review the [video from Module 3 Week 3](https://www.youtube.com/watch?v=32IF54ro1h8)
+
+## Part 5 - Pushing
+
+We are now finally ready to take our locally running application and publish it live on Heroku!
+
+
+
+
+
