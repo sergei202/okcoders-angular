@@ -183,11 +183,6 @@ Resources for this section:
 - Review the [notes from Module 3 Week 3](https://github.com/sergei202/okcoders-backend/tree/master/week3)
 - Review the [video from Module 3 Week 3](https://www.youtube.com/watch?v=32IF54ro1h8)
 
-## Part 5 - Pushing
+## Part 5 - Pushing to Heroku
 
-We are now finally ready to take our locally running application and publish it live on Heroku!
-
-
-
-
-
+Here is the [video for pushing to Heroku](https://www.youtube.com/watch?v=FrnYJvShOVw).
